@@ -1,16 +1,14 @@
 /** Primeiro arquivo, tudo vai participar dele. vai definir todas as rotas*/
 import express from 'express'
+import cors from 'cors'
+import routes from './routes';
 
 
 const app = express();
-const irmas = [
-    { name: 'lumazinha', age: 17},
-    { name: 'luanis', age: 17},
-]
-// definir rota
-app.get('/users', (request,response) => {
-    return response.json(irmas)
-});
+
+app.use(cors())
+app.use(express.json());
+app.use(routes)
 
 // porta que o servidor vai ouvir localhost:3333
 
